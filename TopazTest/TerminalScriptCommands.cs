@@ -11,18 +11,22 @@ namespace TopazTest
             Window.TextOutput.AppendText($"{text}\r\n");
         }
 
-        public static void Pause(int milliseconds)
+        public static async Task Pause(int milliseconds)
         {
-            DispatcherFrame df = new DispatcherFrame();
-
-            new Thread(() =>
-            {
-                Thread.Sleep(TimeSpan.FromMilliseconds(milliseconds));
-                df.Continue = false;
-
-            }).Start();
-
-            Dispatcher.PushFrame(df);
+            await Task.Delay(milliseconds).ConfigureAwait(false);
         }
+        //public static void Pause(int milliseconds)
+        //{
+        //    DispatcherFrame df = new DispatcherFrame();
+
+        //    new Thread(() =>
+        //    {
+        //        Thread.Sleep(TimeSpan.FromMilliseconds(milliseconds));
+        //        df.Continue = false;
+
+        //    }).Start();
+
+        //    Dispatcher.PushFrame(df);
+        //}
     }
 }
