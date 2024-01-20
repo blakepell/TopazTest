@@ -14,6 +14,9 @@ namespace TopazTest
             TerminalScriptCommands.Window = this;
         }
 
+        /// <summary>
+        /// WPF events run as async voids.
+        /// </summary>
         private async void ButtonRunScript_Click(object sender, RoutedEventArgs e)
         {
             var engine = new TopazEngine();
